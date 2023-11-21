@@ -166,6 +166,15 @@ eksctl create cluster --name velocity-cluster \
 --nodes 3 \
 ````
 ````
+eksctl get cluster --name velocity-cluste --region ap-south-1
+````
+````
+aws eks update-kubeconfig --name velocity-cluste --region ap-south-1
+````
+````
+cat /root/.kube/config
+````
+````
 kubectl get nodes
 ````
 -------------------------------------- ArgoCD Installation on EKS Cluster and Add EKS Cluster to ArgoCD --------------------------------------
