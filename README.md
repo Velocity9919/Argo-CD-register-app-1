@@ -1,15 +1,18 @@
 # gitops-register-app
-Video Link -- https://youtu.be/e42hIYkvxoQ
-============================================================= Install and Configure the Jenkins-Master & Jenkins-Agent =============================================================
-## Install Java
-$ sudo apt update
-$ sudo apt upgrade
-$ sudo nano /etc/hostname
-$ sudo init 6
-$ sudo apt install openjdk-17-jre
-$ java -version
 
+-------------------------------------- Install and Configure the Jenkins-Master & Jenkins-Agent --------------------------------------
+
+## Install Java
+````
+sudo apt update
+sudo apt upgrade
+sudo nano /etc/hostname
+sudo init 6
+sudo apt install openjdk-17-jre
+java -version
+````
 ## Install Jenkins
+````
 Refer--https://www.jenkins.io/doc/book/installing/linux/
 curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
@@ -18,16 +21,26 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt-get update
 sudo apt-get install jenkins
+````
+````
+sudo systemctl enable jenkins
+sudo systemctl start jenkins  
+systemctl status jenkins
+````
+````
+sudo nano /etc/ssh/sshd_config
+````
+````
+sudo service sshd reload
+````
+````
+ssh-keygen OR $ ssh-keygen -t ed25519
+````
+````
+cd .ssh
+````
+-------------------------------------- Install and Configure the SonarQube --------------------------------------
 
-$ sudo systemctl enable jenkins       //Enable the Jenkins service to start at boot
-$ sudo systemctl start jenkins        //Start Jenkins as a service
-$ systemctl status jenkins
-$ sudo nano /etc/ssh/sshd_config
-$ sudo service sshd reload
-$ ssh-keygen OR $ ssh-keygen -t ed25519
-$ cd .ssh
-
-============================================================= Install and Configure the SonarQube =============================================================
 ## Update Package Repository and Upgrade Packages
     $ sudo apt update
     $ sudo apt upgrade
@@ -117,7 +130,8 @@ $ sudo vim /etc/systemd/system/sonar.service
 ## Watch log files and monitor for startup
      $ sudo tail -f /opt/sonarqube/logs/sonar.log
 
-============================================================= Setup Bootstrap Server for eksctl and Setup Kubernetes using eksctl =============================================================
+-------------------------------------- Setup Bootstrap Server for eksctl and Setup Kubernetes using eksctl--------------------------------------
+
 ## Install AWS Cli on the above EC2
 Refer--https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 $ sudo su
@@ -155,7 +169,8 @@ $ eksctl create cluster --name virtualtechbox-cluster \
 
 $ kubectl get nodes
 
-============================================================= ArgoCD Installation on EKS Cluster and Add EKS Cluster to ArgoCD =============================================================
+-------------------------------------- ArgoCD Installation on EKS Cluster and Add EKS Cluster to ArgoCD --------------------------------------
+
 1 ) First, create a namespace
     $ kubectl create namespace argocd
 
