@@ -1,6 +1,6 @@
 # gitops-register-app
 
--------------------------------------- Install and Configure the Jenkins-Master & Jenkins-Agent --------------------------------------
+------------------------ Install and Configure the Jenkins-Master & Jenkins-Agent ---------------------------
 
 ## Install Java
 ````
@@ -13,7 +13,6 @@ java -version
 ````
 ## Install Jenkins
 ````
-Refer--https://www.jenkins.io/doc/book/installing/linux/
 curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
@@ -39,7 +38,7 @@ ssh-keygen OR $ ssh-keygen -t ed25519
 ````
 cd .ssh
 ````
--------------------------------------- Install and Configure the SonarQube --------------------------------------
+----------------------------- Install and Configure the SonarQube ------------------------------
 
 ## Update Package Repository and Upgrade Packages
     $ sudo apt update
@@ -130,7 +129,7 @@ $ sudo vim /etc/systemd/system/sonar.service
 ## Watch log files and monitor for startup
      $ sudo tail -f /opt/sonarqube/logs/sonar.log
 
--------------------------------------- Setup Bootstrap Server for eksctl and Setup Kubernetes using eksctl--------------------------------------
+----------------------- Setup Bootstrap Server for eksctl and Setup Kubernetes using eksctl----------------------------
 
 ## Install AWS Cli on the above EC2
 ````
@@ -177,7 +176,7 @@ cat /root/.kube/config
 ````
 kubectl get nodes
 ````
--------------------------------------- ArgoCD Installation on EKS Cluster and Add EKS Cluster to ArgoCD --------------------------------------
+----------------------------- ArgoCD Installation on EKS Cluster and Add EKS Cluster to ArgoCD -----------------------------
 
 1 ) First, create a namespace
 ````
